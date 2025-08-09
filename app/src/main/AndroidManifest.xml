@@ -3,8 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <!-- PERMISSIONS -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- PERMISSIONS OF LOCATION (need for Android 6.0 until Android 12) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- PERMISSIONS FOR Android 13+ (API 33+) -->
+    <uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +29,6 @@
         android:theme="@style/Theme.IPList"
         tools:targetApi="31">
 
-        <!-- ACTIVITIES -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
