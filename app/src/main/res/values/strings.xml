@@ -1,13 +1,20 @@
 <resources>
     <string name="app_name">IP List</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_subtitle">@string/created_by</string>
+    <string name="nav_header_subtitle_email">@string/created_email</string>
+
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
     <string name="menu_network_info">Network information</string>
 
     <string name="network_name">Network name:</string>
+
+    <string name="created_by">Created by Rodrigo Amora</string>
+    <string name="created_email">rodrigo.amora.freitas@gmail.com</string>
 </resources>
