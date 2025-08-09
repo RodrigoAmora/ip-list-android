@@ -25,8 +25,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         checkPermissions()
-
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -79,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow
+                R.id.nav_networkinfo,
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -91,10 +89,11 @@ class MainActivity : AppCompatActivity() {
         val requiredPermissions = mutableListOf(
             android.Manifest.permission.ACCESS_FINE_LOCATION,
             android.Manifest.permission.ACCESS_COARSE_LOCATION,
+            android.Manifest.permission.ACCESS_NETWORK_STATE,
             android.Manifest.permission.ACCESS_WIFI_STATE,
             android.Manifest.permission.CHANGE_WIFI_STATE,
             android.Manifest.permission.INTERNET,
-            android.Manifest.permission.ACCESS_NETWORK_STATE
+            android.Manifest.permission.NEARBY_WIFI_DEVICES
         )
         PermissionUtil.requestPermissions(this, requiredPermissions)
     }
