@@ -1,4 +1,4 @@
-package br.com.rodrigoamora.iplist.ui.network
+package br.com.rodrigoamora.iplist.ui.fragment.network
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +15,8 @@ class NetworkInfoFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var textViewNetworkNameValue: TextView
+    private lateinit var textNetworkIpValue: TextView
+    private lateinit var textNetworkMacAddressValue: TextView
 
     private lateinit var networkInfoViewModel: NetworkInfoViewModel
 
@@ -29,6 +31,8 @@ class NetworkInfoFragment : Fragment() {
         val root: View = binding.root
 
         textViewNetworkNameValue = binding.textNetworkNameValue
+        textNetworkIpValue = binding.textNetworkIpValue
+        textNetworkMacAddressValue = binding.textNetworkMacAddressValue
 
         return root
     }
@@ -39,6 +43,9 @@ class NetworkInfoFragment : Fragment() {
         appContext?.let {
             val networkUtil = networkInfoViewModel.informationNetwork(it)
             textViewNetworkNameValue.text = networkUtil?.ssid
+            textNetworkIpValue.text = networkUtil?.ipAddress.toString()
+            textNetworkMacAddressValue.text = networkUtil?.macAddress
+
         }
     }
 }

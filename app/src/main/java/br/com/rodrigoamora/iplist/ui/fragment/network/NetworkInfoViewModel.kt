@@ -1,4 +1,4 @@
-package br.com.rodrigoamora.iplist.ui.network
+package br.com.rodrigoamora.iplist.ui.fragment.network
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
