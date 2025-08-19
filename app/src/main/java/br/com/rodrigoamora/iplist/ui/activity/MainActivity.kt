@@ -3,12 +3,13 @@ package br.com.rodrigoamora.iplist.ui.activity
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.Menu
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import br.com.rodrigoamora.iplist.R
 import br.com.rodrigoamora.iplist.databinding.ActivityMainBinding
@@ -66,24 +67,40 @@ class MainActivity : AppCompatActivity() {
     private fun bindingLayout() {
         this.binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(this.binding.root)
-        setSupportActionBar(binding.appBarMain.toolbar)
     }
 
     private fun createNavigationBar() {
+        val toolbar = this.binding.appBarMain.toolbar
+        setSupportActionBar(toolbar)
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
+        val toggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout, toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
         val navView: NavigationView = binding.navView
+        navView.itemIconTintList = null
+
         val navController = findNavController(R.id.nav_host_fragment_content_main)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_networkinfo,
+                R.id.nav_devices_list,
             ), drawerLayout
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
     }
-
 
     private fun checkPermissions() {
         val requiredPermissions = mutableListOf(
