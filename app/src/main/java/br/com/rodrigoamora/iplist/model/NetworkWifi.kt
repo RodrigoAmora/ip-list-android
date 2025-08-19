@@ -6,5 +6,7 @@ data class NetworkWifi(
     val strength: Int?, // em dBm
     val frequency: Int?, // em MHz
     val linkSpeed: Int?, // em Mbps
-    val networkId: Int?
+    val networkId: Int?,
+    val macAddress: String?,
+    val ipAddress: Int?
 )
