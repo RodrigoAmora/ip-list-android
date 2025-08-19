@@ -3,11 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_networkinfo">
+    app:startDestination="@id/nav_networkinfo">
 
     <fragment
         android:id="@+id/nav_networkinfo"
-        android:name="br.com.rodrigoamora.iplist.ui.network.NetworkInfoFragment"
-        android:label="@string/menu_network_info" />
+        android:name="br.com.rodrigoamora.iplist.ui.fragment.network.NetworkInfoFragment"
+        android:label="@string/menu_network_info" >
+
+        <action
+            android:id="@+id/action_nav_list_characters_to_nav_character"
+            app:destination="@id/nav_devices_list"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@animator/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/nav_networkinfo" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_devices_list"
+        android:name="br.com.rodrigoamora.iplist.ui.fragment.devices.DevicesListFragment"
+        android:label="@string/menu_devices_on_the_network" />
 
 </navigation>

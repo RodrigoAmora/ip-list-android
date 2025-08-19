@@ -8,5 +8,10 @@
             android:id="@+id/nav_networkinfo"
             android:icon="@drawable/ic_wifi"
             android:title="@string/menu_network_info" />
+
+        <item
+            android:id="@+id/nav_devices_list"
+            android:icon="@drawable/ic_device"
+            android:title="@string/menu_devices_on_the_network" />
     </group>
 </menu>
