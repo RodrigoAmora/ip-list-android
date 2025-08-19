@@ -79,7 +79,9 @@ class NetworkUtil(private val context: Context) {
                 strength = null,
                 frequency = null,
                 linkSpeed = null,
-                networkId = null
+                networkId = null,
+                macAddress = null,
+                ipAddress = null
             )
         }
 
@@ -92,7 +94,9 @@ class NetworkUtil(private val context: Context) {
                     strength = null,
                     frequency = null,
                     linkSpeed = null,
-                    networkId = null
+                    networkId = null,
+                    macAddress = null,
+                    ipAddress = null
                 )
             }
 
@@ -101,14 +105,16 @@ class NetworkUtil(private val context: Context) {
                 // Android 12 (API 31) e superior
                 val networkInfo = context.getSystemService(WifiManager::class.java)
                 val wifiInfo = networkInfo.connectionInfo
-
+                wifiInfo.ipAddress
                 NetworkWifi(
                     ssid = wifiInfo.ssid.removeSurrounding("\""),
                     bssid = wifiInfo.bssid,
                     strength = wifiInfo.rssi,
                     frequency = wifiInfo.frequency,
                     linkSpeed = wifiInfo.linkSpeed,
-                    networkId = wifiInfo.networkId
+                    networkId = wifiInfo.networkId,
+                    macAddress = wifiInfo.macAddress,
+                    ipAddress = wifiInfo.ipAddress
                 )
             } else {
                 // Para versões anteriores ao Android 12
@@ -121,7 +127,9 @@ class NetworkUtil(private val context: Context) {
                     strength = wifiInfo.rssi,
                     frequency = wifiInfo.frequency,
                     linkSpeed = wifiInfo.linkSpeed,
-                    networkId = wifiInfo.networkId
+                    networkId = wifiInfo.networkId,
+                    macAddress = wifiInfo.macAddress,
+                    ipAddress = wifiInfo.ipAddress
                 )
             }
         } catch (e: Exception) {
@@ -132,7 +140,9 @@ class NetworkUtil(private val context: Context) {
                 strength = null,
                 frequency = null,
                 linkSpeed = null,
-                networkId = null
+                networkId = null,
+                macAddress = null,
+                ipAddress = null
             )
         }
     }
